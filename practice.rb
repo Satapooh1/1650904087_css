@@ -31,7 +31,7 @@ class User
     end
 
     def acknowledge_message(room, message)
-        puts "#{name} acknowledged message: '#{message.content}' from #{room.name}"
+        puts "#{name} read: '#{message.content}' from #{room.name}"
     end
 end
 
