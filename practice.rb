@@ -53,9 +53,11 @@ class Room
 # room.broadcast(message)
 
     def broadcast(message)
+        puts
         puts "message in #{name}: #{message.user.name}: '#{message.content}'"
+        puts
         users.each do |user|
-            user.acknowledge_message(self, message)
+            user.acknowledge_message(self, message) unless user == message.user
         end
     end
 end
@@ -76,12 +78,16 @@ class Message
 end
 
 user1 = User.new("Pooh", "satapol.boon@bumail.net", "11111")
-user2 = User.new("Nama", "naaa@bumail.net", "2222")
+user2 = User.new("P", "p@bumail.net", "2222")
+user3 = User.new("Master", "master@bumail.net", "2222")
 
 room = Room.new("Chat Room 1", "Party room")
 
 user1.enter_room(room)
 user2.enter_room(room)
+user3.enter_room(room)
 
-user1.send_message(room, "Hello everyone!")
-user2.send_message(room, "Hi")
+user1.send_message(room, "Where should we go drinking to day")
+user2.send_message(room, "Same place")
+user3.send_message(room, "ok")
+user1.send_message(room, "kkkk")
