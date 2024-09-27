@@ -10,7 +10,6 @@ class User
         @name = name
         @email = email
         @password = password
-        @rooms = []
     end
 
 # add a method to user so, user can enter to a room
@@ -20,10 +19,6 @@ class User
         if !room.users.include?(self)
             room.users << self  
         end
-
-        if !@rooms.include?(room)
-            @rooms << room
-        end
     end
 
 # add a method to user so, user can send a message to a room
@@ -32,7 +27,7 @@ class User
 
     def send_message(room, content)
         message = Message.new(self, room, content)
-        room.broadcast(message) if @rooms.include?(room)
+        room.broadcast(message)
     end
 
     def acknowledge_message(room, message)
@@ -58,7 +53,7 @@ class Room
 # room.broadcast(message)
 
     def broadcast(message)
-        puts "Broadcasting message in #{name}: #{message.user.name}: '#{message.content}'"
+        puts "message in #{name}: #{message.user.name}: '#{message.content}'"
         users.each do |user|
             user.acknowledge_message(self, message)
         end
