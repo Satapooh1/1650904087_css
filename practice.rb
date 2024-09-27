@@ -81,7 +81,7 @@ user1 = User.new("Pooh", "satapol.boon@bumail.net", "11111")
 user2 = User.new("P", "p@bumail.net", "2222")
 user3 = User.new("Master", "master@bumail.net", "2222")
 
-room = Room.new("Chat Room 1", "Party room")
+room = Room.new("Drinkkkk", "Party room")
 
 user1.enter_room(room)
 user2.enter_room(room)
